@@ -1,0 +1,67 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+export const prerender = false;
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const password = formData.get("password")?.toString();
+
+  if(password == "indesap2025"){
+    return Astro.redirect("/dashboard")
+  }
+}
+---
+
+<Layout>
+  <main class="flex items-center justify-center w-full h-screen">
+    <h1 id="title" class="text-4xl font-imbplexmonobold">IndeThings</h1>
+    <form id="form" class="flex-col hidden" method="POST">
+      <label class="font-imbplexmonosemi pl-2" for="password">Ingresar</label>
+      <input
+        class="px-2 py-1 border-2 border-black rounded-xl"
+        name="password"
+        type="password"
+        placeholder="Code"
+      />
+    </form>
+  </main>
+</Layout>
+
+<style>
+  .hideTitle {
+    position: absolute;
+    animation: opacityAnimation 0.5s ease-in-out forwards;
+  }
+
+  .showForm {
+    display: flex;
+    opacity: 0;
+    animation-name: opacityAnimation;
+    animation-duration: 0.5s;
+    animation-delay: 0.4s;
+    animation-timing-function: ease-in;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes opacityAnimation {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const title = document.getElementById("title");
+  const form = document.getElementById("form");
+
+  title?.addEventListener("mouseover", () => {
+    title?.classList.add("hideTitle");
+    form?.classList.add("showForm");
+
+  });
+</script>

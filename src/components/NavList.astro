@@ -1,0 +1,46 @@
+---
+import { NavIcon } from "./react-components/icons/NavIcon";
+
+const navList = [
+  { id: 1, name: "My Notes", icon: "notes", url: "/dashboard" },
+  { id: 2, name: "How to", icon: "howTo", url: "/how-to" },
+  { id: 3, name: "Tools", icon: "tools", url: "/tools" },
+];
+---
+
+<ul
+  id="navList"
+  class={`flex flex-col gap-1
+                 [&>li]:p-1.5 [&>li]:cursor-pointer [&>li]:tab-index transition-all
+                 [&>li]:font-semibold [&>li]:flex [&>li]:gap-1 [&>li]:items-center
+                 [&>li]:hover:bg-neutral-800 [&>li]:hover:text-white
+                `}
+>
+  {navList.map((item) => (
+    <li class={`${Astro.url.pathname === item.url ? "selected" : ""}`}>
+      <NavIcon iconName={item.icon} size={20} /> {item.name}
+    </li>
+  ))}
+</ul>
+
+<style>
+  @reference "../styles/global.css";
+  .selected {
+    @apply bg-black text-white;
+  }
+</style>
+
+<script>
+  const navList = document.getElementById("navList");
+
+  navList?.addEventListener("click", (event: Event) => {
+    const target = event.target as HTMLElement;
+    if (target.tagName == "LI") {
+      const elementSelected = navList.querySelector(".selected");
+      if (elementSelected) {
+        elementSelected.classList.remove("selected");
+      }
+      target.classList.add("selected");
+    }
+  });
+</script>

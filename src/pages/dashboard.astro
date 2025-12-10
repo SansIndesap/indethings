@@ -1,0 +1,21 @@
+---
+import Iridescence from "@components/iridecense/Iridescence";
+import DashboardContent from "@components/DashboardContent.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout>
+  <main class="relative p-10 h-full">
+    <div class="absolute top-0 left-0 w-screen h-screen -z-10">
+      <Iridescence
+        color={[1, 1, 1]}
+        mouseReact={false}
+        amplitude={0.1}
+        speed={1.0}
+        client:only
+      />
+    </div>
+
+    <DashboardContent />
+  </main>
+</Layout>
