@@ -3,8 +3,8 @@ import { NavIcon } from "./react-components/icons/NavIcon";
 
 const navList = [
   { id: 1, name: "My Notes", icon: "notes", url: "/dashboard" },
-  { id: 2, name: "How to", icon: "howTo", url: "/how-to" },
-  { id: 3, name: "Tools", icon: "tools", url: "/tools" },
+  { id: 2, name: "How to", icon: "howTo", url: "/dashboard/how-to" },
+  { id: 3, name: "Tools", icon: "tools", url: "/dashboard/tools" },
 ];
 ---
 
@@ -17,7 +17,7 @@ const navList = [
                 `}
 >
   {navList.map((item) => (
-    <li class={`${Astro.url.pathname === item.url ? "selected" : ""}`}>
+    <li data-url={item.url} class={`${Astro.url.pathname === item.url ? "selected" : ""}`}>
       <NavIcon iconName={item.icon} size={20} /> {item.name}
     </li>
   ))}
@@ -41,6 +41,7 @@ const navList = [
         elementSelected.classList.remove("selected");
       }
       target.classList.add("selected");
+      window.location.href = target.dataset.url!;
     }
   });
 </script>

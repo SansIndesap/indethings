@@ -1,0 +1,25 @@
+---
+import ItemCard from "@components/ItemCard.astro";
+import ItemsList from "@components/ItemsList.astro";
+import DashboardLayout from "@layouts/DashboardLayout.astro";
+import { getCollection } from "astro:content";
+/*----------------------------------------------------------------
+------------ ESTE ES EL INDEX DEL DASHBOARD ----------------------
+--------------- MIS NOTAS ---------------------------------------
+*/
+const slug = Astro.params.slug;
+
+const all = await getCollection("my_notes");
+const fixedData = all.map((value) => {
+  const info = {
+    ...value.data,
+    slug: value.slug,
+  }
+  return info;
+});
+---
+
+<DashboardLayout title="Mis Notas">
+  <h1 class="text-2xl font-imbplexmonobold">Mis Notas</h1>
+  <ItemsList items={fixedData} noItems="No hay notas disponibles"/>
+</DashboardLayout>

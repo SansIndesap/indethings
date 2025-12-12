@@ -1,0 +1,36 @@
+---
+import type { ItemData } from "@models/item-model";
+import ItemCard from "./ItemCard.astro";
+
+interface Props {
+  items: ItemData[];
+  noItems?: string;
+}
+
+const { items, noItems = "Articulos no disponibles" } = Astro.props;
+---
+
+<ul id="list-items" class="flex flex-wrap gap-4 pt-8">
+  {
+    items ? (
+      items.map((value: ItemData) => {
+        return <ItemCard data={value} />;
+      })
+    ) : (
+      <p>{noItems}</p>
+    )
+  }
+</ul>
+
+
+<script>
+  const listItems = document.getElementById("list-items");
+  listItems?.addEventListener("click", (event: Event) => {
+    let target = event.target as HTMLElement;
+    target = target.offsetParent as HTMLLIElement;
+    if (target.tagName == "LI") {
+      window.location.href = target.dataset.url!;
+    }
+  });
+
+</script>
