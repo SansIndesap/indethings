@@ -29,17 +29,19 @@ const { Content } = await post.render();
 ---
 
 <DashboardLayout title={post.data.title}>
-  <article class="flex flex-col h-full overflow-y-auto">
+  <article class="flex flex-col h-full overflow-y-auto pt-20">
     <h1 class="text-3xl text-center font-imbplexmonosemi">{post.data.title}</h1>
     <p class="text-center"><small>{new Date(post.data.date).toLocaleDateString()}</small></p>
-    <section class={`max-w-xl mx-auto
-    [&>h1]:text-2xl [&>h1]:font-imbplexmonosemi [&>h1]:pl-2 [&>h1]:mb-1 [&>h1]:mt-8 [&>h1]:text-center
+    <section class={`max-w-xl mx-auto pt-8
+    [&>h1]:text-2xl [&>h1]:font-imbplexmonosemi [&>h1]:pl-2 [&>h1]:mb-4 [&>h1]:mt-8 [&>h1]:text-center
     [&>h2]:text-xl [&>h2]:font-imbplexmonosemi [&>h2]:pl-2 [&>h2]:mb-1 [&>h2]:mt-8
-    [&>h3]:text-lg [&>h3]:font-imbplexmonosemi [&>h3]:pl-2 [&>h3]:mb-1
-    [&>h4]:text-md [&>h4]:font-imbplexmonosemi [&>h4]:pl-2 [&>h4]:mb-1
+    [&>h3]:text-lg [&>h3]:font-imbplexmonosemi [&>h3]:pl-2 [&>h3]:mb-1 [&>h3]:mt-8
+    [&>h4]:text-md [&>h4]:font-imbplexmonosemi [&>h4]:pl-2 [&>h4]:mb-6
     [&>p]:pl-4 [&>p]:font-roboto [&>p]:my-4
     [&>ul]:pl-8
     [&>ul>li]:list-disc
+    [&>ul>li>ul]:pl-8
+    [&>ul>li>ul>li]:list-[circle]
     [&>pre]:pl-4 [&>pre]:my-4
     [&>hr]:mt-8 [&>hr]:border
     `}>

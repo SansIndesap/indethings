@@ -1,0 +1,30 @@
+---
+import DashboardLayout from "@layouts/DashboardLayout.astro";
+---
+
+<DashboardLayout title="Pruebas">
+  <h1 class="text-2xl font-imbplexmonobold">Pruebas</h1>
+
+  <div class="flex justify-center items-center bg-amber-100 w-full h-full">
+    <main class="flex flex-col bg-red-300 w-[35%] h-[80%] p-2 gap-2">
+        <header class="flex justify-center items-center w-full h-32 bg-blue-300">
+            <p>header</p>
+        </header>
+        <section class="h-full w-full bg-blue-300 p-2 overflow-y-auto">
+            <ul class="flex flex-col gap-2 [&>li]:w-full [&>li]:h-16 [&>li]:p-2 [&>li]:bg-green-600 [&>li]:text-white [&>li]:rounded-lg">
+                <li> Item 1 </li>
+                <li> Item 2 </li>
+                <li> Item 3 </li>
+                <li> Item 1 </li>
+                <li> Item 2 </li>
+                <li> Item 1 </li>
+                <li> Item 2 </li>
+                <li> Item 1 </li>
+                <li> Item 22 </li>
+                <li> Item 54 </li>
+                <li> Item 34 </li>
+            </ul>
+        </section>
+    </main>
+  </div>
+</DashboardLayout>

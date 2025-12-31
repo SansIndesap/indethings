@@ -12,7 +12,7 @@ const { title = "Dashboard" } = Astro.props;
 
 <Layout title={`${title}`}>
   <main class="relative p-10 h-full">
-    <div class="absolute top-0 left-0 w-screen h-screen -z-10">
+    <div class="absolute top-0 left-0 w-screen h-screen -z-10 bg-animation transition-all">
       <Iridescence
         color={[1, 1, 1]}
         mouseReact={false}
@@ -26,3 +26,16 @@ const { title = "Dashboard" } = Astro.props;
     </DashboardContent>
   </main>
 </Layout>
+
+<style>
+  .bg-animation{
+    opacity: 0;
+    animation: bgAnimation 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+  
+  @keyframes bgAnimation {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+</style>
