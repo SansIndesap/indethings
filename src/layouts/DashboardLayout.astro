@@ -11,8 +11,8 @@ const { title = "Dashboard" } = Astro.props;
 ---
 
 <Layout title={`${title}`}>
-  <main class="relative p-10 h-full">
-    <div class="absolute top-0 left-0 w-screen h-screen -z-10 bg-animation transition-all">
+  <main class="relative md:p-10 h-full">
+    <div class="hidden md:block absolute top-0 left-0 w-screen h-screen -z-10 bg-animation transition-all">
       <Iridescence
         color={[1, 1, 1]}
         mouseReact={false}
