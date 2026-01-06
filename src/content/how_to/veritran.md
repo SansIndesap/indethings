@@ -35,7 +35,7 @@ Basicamente es donde se desarrolla la aplicacion, que independientemente del dis
 Estas plataformas o tambien conocidos como canales pueden ser:
 - Web Apps
 - Smart POS
-- Mobile Apss
+- Mobile Apps
 
 ## Runtime/Operation
 ### Middleware

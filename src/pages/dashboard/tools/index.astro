@@ -1,7 +1,102 @@
 ---
+import NumeredCard from "@components/cards/NumeredCard.astro";
 import DashboardLayout from "@layouts/DashboardLayout.astro";
+import { type ItemData } from "@models/item-model";
+import { ConditionalIcons } from "@components/react-components/icons/ConditionalIcons";
+import Arrow from "@components/icons/Arrow.astro";
+
+const data: ItemData[] = [
+  {
+    title: "Autocompleatado del ATF",
+    date: new Date(),
+    tags: ["IA", "ATF"],
+    description: "Autocompleatado del ATF mediante IA con información básica",
+    slug: "automation",
+  },
+];
 ---
 
 <DashboardLayout title="Tools">
   <h1 class="text-2xl font-imbplexmonobold">Tools</h1>
+  <ul class="mt-10 p-10">
+    <li
+      class="flex border-2 gap-4 border-black shadow-[5px_4px_0_0_var(--color-lime-400)]"
+    >
+      <section class="flex flex-col w-full gap-2 p-6">
+        <header class="flex items-center gap-3">
+          <div
+            class="flex items-center justify-center w-10 h-10 bg-lime-400 shadow-[2px_2px_0_0_var(--color-black)] border-2 border-black"
+          >
+            <ConditionalIcons iconName="sparks" size={24} />
+          </div>
+          <div class="flex flex-col font-imbplexmonosemi">
+            <h2 class="text-xl">AI DOCUMENT AUTOMATION</h2>
+            <span class="text-xs text-black/40">BETA FEATURE V.0.1</span>
+          </div>
+        </header>
+        <article class="flex gap-3 text-black/60 font-imbplexmono text-sm mt-4">
+          <div class="bg-lime-400 w-1 rounded-2xl"></div>
+          <p>
+            Streamline your workflow with our new automation engine. Generate
+            complete documents from simple inputs in seconds.
+          </p>
+        </article>
+        <section class="flex gap-5 mt-8">
+          <NumeredCard
+            title="Input"
+            description="Provide basic info & context."
+            icon="input"
+            numered={1}
+          />
+          <NumeredCard
+            title="Template"
+            description="Select structure type"
+            icon="template"
+            numered={2}
+          />
+          <NumeredCard
+            title="Wand"
+            description="AI completes the draft"
+            icon="wand"
+            numered={3}
+          />
+        </section>
+        <div class="w-full mt-8">
+          <button
+            aria-label="Try Automation"
+            type="button"
+            class="bg-black text-white px-4 py-2 font-roboto flex items-center gap-2
+                          hover:bg-lime-500 hover:text-black transition-colors cursor-pointer"
+          >
+            Try Automation
+            <Arrow size={20} />
+          </button>
+        </div>
+      </section>
+      <section class="flex bg-amber-400 p-10 justify-center items-center">
+        <article
+          class="flex flex-col p-4 bg-white border-2 border-black shadow-[3px_4px_0px_0px_#000]"
+        >
+          <h1
+            class="text-sm font-imbplexmonosemi uppercase border-b-2 border-black pb-2"
+          >
+            AI Template Showcase
+          </h1>
+          <section class="mt-4">
+            <h2 class="text-sm font-imbplexmonosemi uppercase">ATF</h2>
+            <p class="text-xs text-black/60 text-balance font-imbplexmono">
+              Outline project goals, tasks, and timelines efficiently.
+            </p>
+          </section>
+        </article>
+      </section>
+    </li>
+  </ul>
 </DashboardLayout>
+
+
+<script>
+  document.querySelector('button[aria-label="Try Automation"]')?.addEventListener('click', () => {
+    window.location.href = '/dashboard/tools/automation';
+  });
+</script>

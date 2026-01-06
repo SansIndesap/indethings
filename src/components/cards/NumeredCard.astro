@@ -1,0 +1,22 @@
+---
+import { ConditionalIcons } from "../react-components/icons/ConditionalIcons";
+
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  numered: number;
+}
+
+const { title, description, icon, numered } = Astro.props;
+---
+
+<article class="relative flex flex-col border-2 w-44 border-black p-4 shadow-[2px_3px_0_0_#000]  hover:translate-x-[3px]
+            hover:translate-y-[2px] hover:shadow-none transition-all">
+    <div class="absolute right-[-10px] top-[-10px] z-10 bg-lime-400 border-black border-2 w-8 h-8 flex items-center justify-center font-imbplexmonosemi">{numered}</div>
+    <header>
+         <ConditionalIcons iconName={icon} size={40} />  
+    </header>
+    <h2 class="mt-4 font-imbplexmonosemi uppercase">{title}</h2>
+    <p class="font-imbplexmono text-xs text-black/60">{description}</p>
+</article>

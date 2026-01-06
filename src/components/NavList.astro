@@ -17,7 +17,7 @@ const navList = [
                 `}
 >
   {navList.map((item) => (
-    <li data-url={item.url} class={`${Astro.url.pathname === item.url ? "selected" : ""}`}>
+    <li data-url={item.url} class={`${Astro.url.pathname.split("/")[2] === item.url.split("/")[2] ? "selected" : ""}`}>
       <NavIcon iconName={item.icon} size={20} /> {item.name}
     </li>
   ))}

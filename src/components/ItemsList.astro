@@ -12,12 +12,12 @@ const { items, noItems = "Articulos no disponibles" } = Astro.props;
 
 <ul id="list-items" class="flex flex-wrap justify-center md:justify-start gap-8 md:gap-4 pt-8">
   {
-    items ? (
+    items.length > 0 ? (
       items.map((value: ItemData) => {
         return <ItemCard data={value} />;
       })
     ) : (
-      <p>{noItems}</p>
+      <p class="text-center text-xl font-imbplexmonosemi w-full">{noItems}</p>
     )
   }
 </ul>
@@ -27,9 +27,11 @@ const { items, noItems = "Articulos no disponibles" } = Astro.props;
   const listItems = document.getElementById("list-items");
   listItems?.addEventListener("click", (event: Event) => {
     let target = event.target as HTMLElement;
-    target = target.offsetParent as HTMLLIElement;
-    if (target.tagName == "LI") {
-      window.location.href = target.dataset.url!;
+    const closestLi = target.closest('li');
+    if (!closestLi) return;
+    target = closestLi as HTMLLIElement;
+    if (target.tagName == "LI" && target.dataset.url) {
+      window.location.href = target.dataset.url;
     }
   });
 
