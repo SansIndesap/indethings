@@ -208,10 +208,18 @@ Los formatos permiten transformar un dato que se encuentra con una estructura o 
 | Numeric Signed    | "S"       | -9999,99          | 2-999999              |
 
 
+# Screens
+Como se mencionaba anteriormente, es una porción de una pantalla que va a ocupar un área visual definida en la site view donde se encuentra. Una pantalla se construye a partir de diferentes tipos de componentes como paneles, botones, imágenes, y textos.
 
-## Configuracion de transacciones:
+# Procesos
+Como anteriormente se mencionaba, son secuencias de pasos que agregan lógica a una app. Cada paso ejecuta una operación o función. Con un proceso puedes realizar operaciones como asignar valores a variables, validaciones lógicas, operaciones matemáticas, crear arrays, manipular cadenas de texto, llamado a transacciones, entre otras.
+
+# Transacciones
+## Configuración de transacciones:
 En la pestaña Configuration, configura información general sobre el nodo. En el campo Label, ingresa un nombre para identificar la función el nodo dentro del flujo. También puedes configurar información adicional que varía según el tipo de elemento seleccionado. Por ejemplo, en una acción Iterator, puedes configurar de qué forma iniciará la iteración de datos. Esta pestaña está disponible para todos los elementos presentes en el panel izquierdo y para los nodos Start y End.
 
 En la *pestaña Inputs*, configura los sockets de entrada para el nodo seleccionado. Estos representan la información que el elemento recibe del flujo de transacción. Las entradas varían según el nodo seleccionado y el flujo que estás construyendo. Esta pestaña está disponible para todos los nodos, con excepción de Start y Constant, ya que no tienen flujos de entrada.
 
 En la *pestaña Outputs*, configura los sockets de salida para el nodo seleccionado. Estos representan la información que se envía desde este nodo hacia otro. Estos parámetros varían según el nodo seleccionado. Esta pestaña está disponible para el nodo Start y para cada acción.
+
+
