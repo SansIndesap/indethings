@@ -1,8 +1,8 @@
 ---
-title: "Cómo funciona la plataforma Veritran"
-date: 2026-01-01
-tags: ["veritran", "tutorial"]
-description: "Guía rápida de uso básico Veritran"
+title: "Sistema funcional de Veritran tecnico"
+date: 2026-02-15
+tags: ["veritran", "tecnico"]
+description: "Guía técnica del sistema funcional de Veritran"
 ---
 
 
