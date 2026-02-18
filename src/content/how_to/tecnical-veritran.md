@@ -1,5 +1,5 @@
 ---
-title: "Sistema funcional de Veritran tecnico"
+title: "Acercamiento Tecnico a Veritran"
 date: 2026-02-15
 tags: ["veritran", "tecnico"]
 description: "Guía técnica del sistema funcional de Veritran"
